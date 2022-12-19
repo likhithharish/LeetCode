@@ -14,12 +14,12 @@ class Solution {
                         temp.add(strs[j]);
                     }
                 }
-            }
-            if(temp.size()!=0){
                 results.add(temp);
             }
         }
-        return results;
+        return results; // Basic Approach
+        
+     
     }
     
     public boolean isAnagram(String s, String t) {
