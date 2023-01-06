@@ -1,24 +1,6 @@
 class Solution {
     public int maxProfit(int[] prices) {
-//         int maxProfit = 0;
-//         int minDay = Integer.MAX_VALUE;
-//         int maxDay =0;
-        
-//         for( int i=0;i< prices.length; i++){
-//             if(prices[i]<minDay){
-//                 minDay = prices[i];
-//                 continue;
-//             }
-//             if(prices[i]>maxDay && maxDay>minDay){
-//                 maxDay =prices[i];
-//                 maxProfit += maxDay - minDay;
-//                 System.out.println(maxProfit);
-//                 maxDay = 0;
-//                 minDay = Integer.MAX_VALUE;
-//             }
-//         }
-//         return maxProfit;
-        Stack<Integer> stack = new Stack<>();
+        /*Stack<Integer> stack = new Stack<>();
         int maxProfit = 0;
 
         for (int i = 0; i < prices.length; i++) {
@@ -44,6 +26,14 @@ class Solution {
             maxProfit += stack.peek() - stack.firstElement();
         }
 
-        return maxProfit;
+        return maxProfit;*/
+        int profit = 0;
+        for( int i=1;i< prices.length; i++){
+            if( prices[i]> prices[i-1]){
+                profit += prices[i]- prices[i-1];
+            }
+        }
+         return profit;      
     }
+               
 }
