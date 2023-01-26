@@ -1,23 +1,17 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        
-        int maxindex = numbers.length-1;
-        
-        for( int i=0; i< numbers.length;i++){
-            if(numbers[i]+numbers[maxindex]==target){
-                return new int[]{i+1,maxindex+1};
+        int start = 0; 
+        int end = numbers.length-1;
+        while(start<end){
+            if(numbers[start]+numbers[end]>target){
+                end--;
+            }else if(numbers[start]+numbers[end]<target){
+                start++;
             }
-            if(numbers[i]+numbers[maxindex]>target){
-                maxindex--;
-                i--;
-                continue;
-            }
-            if(numbers[i]+numbers[maxindex]<target){
-                
-                continue;
+            if(numbers[start]+numbers[end]==target){
+                return new int[]{start+1,end+1};
             }
         }
-        
         return new int[0];
     }
 }
