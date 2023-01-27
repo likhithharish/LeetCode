@@ -6,16 +6,18 @@ class Solution {
             left[i] = nums[i-1] * left[i-1];
         }
         
-        int[] right = new int[nums.length];
-        right[right.length-1] = 1;
-        for( int i=right.length-2; i>=0 ; i--){
-            right[i] = right[i+1] * nums[i+1];
+        // int[] right = new int[nums.length];
+        // right[right.length-1] = 1;
+        // for( int i=right.length-2; i>=0 ; i--){
+        //     right[i] = right[i+1] * nums[i+1];
+        // }
+        int rightProduct =1;
+        for( int i=nums.length-1; i>=0; i--){
+            left[i] = left[i]*rightProduct;
+            rightProduct*= nums[i];
         }
         
-        for( int i=0; i< nums.length; i++){
-            nums[i] = left[i] * right[i];
-        }
-        return nums;
+        return left;
         
     }
 }
