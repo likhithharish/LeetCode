@@ -1,12 +1,12 @@
 class Solution {
     public int search(int[] nums, int target) {
-        if(nums.length==2){
-            if(target==nums[0]){
-                return 0;
-            }else if(target==nums[1]){
-                return 1;
-            }
-        }
+        // if(nums.length==2){
+        //     if(target==nums[0]){
+        //         return 0;
+        //     }else if(target==nums[1]){
+        //         return 1;
+        //     }
+        // }
         int low =0;
         int high = nums.length -1;
         while(low<=high){
