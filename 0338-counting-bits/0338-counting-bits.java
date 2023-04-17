@@ -18,6 +18,13 @@ class Solution {
     
     public int countBitsInNum( int n){
         //Loopup Table approach:
-        return tbl[n & 255] + tbl[(n >> 8) & 255] + tbl[(n >> 16) & 255] + tbl[n >> 24];
+        //return tbl[n & 255] + tbl[(n >> 8) & 255] + tbl[(n >> 16) & 255] + tbl[n >> 24];
+        //Brain Kenninger Algo
+        int res =0;
+        while(n >0){
+            n = n &(n-1);
+            res += 1;
+        }
+        return res;
     }
 }
