@@ -1,6 +1,6 @@
 class Solution {
     public int longestConsecutive(int[] nums) {
-        if(nums.length<=0){
+       if(nums.length<=0){
             return 0;
         }
         Arrays.sort(nums);
