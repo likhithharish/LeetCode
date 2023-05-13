@@ -1,10 +1,13 @@
 class Solution {
+    /* 
+        Intuition::
+            - Use a set since it removes duplicates on removal.
+    */
     public boolean containsDuplicate(int[] nums) {
-        final Set<Integer> set = new HashSet<>();
-        for (int a: nums) {
-            if (!set.add(a))
-                return true;
+        Set<Integer> set = new HashSet<>();
+        for( int i: nums){
+            set.add(i);
         }
-        return false;
+        return nums.length!=set.size();
     }
 }
