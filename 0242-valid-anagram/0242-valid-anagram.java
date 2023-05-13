@@ -1,17 +1,22 @@
 class Solution {
+    /* 
+        Intution::
+            - if s and t lengths are diff return false
+            - count the char in s and decrement it with t . since all lower case char use a int[] array.
+    */
     public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()){ return false;}
-        HashMap<Character,Integer> map = new HashMap<>();
+        if(s.length() != t.length()) {
+            return false;
+        }
+        int[] charArr = new int[26];
         for( int i=0; i<s.length(); i++){
-           map.put( s.charAt(i), map.getOrDefault(s.charAt(i), 0) +1);
-           map.put( t.charAt(i), map.getOrDefault(t.charAt(i), 0) -1);
+            charArr[s.charAt(i) - 'a']++;
+            charArr[t.charAt(i) - 'a']--;
         }
         
-        for( char c: map.keySet()) {
-            if(map.get(c) != 0){  return false;}
+        for( int i:charArr){
+            if(i!=0){ return false; }
         }
-        
         return true;
-        
     }
 }
