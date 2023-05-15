@@ -1,24 +1,31 @@
 class Solution {
+    /*
+    Intuition:
+    - Keep a map with hashcode for string and its anagrams.
+    - Calculate hashcode by using a int arr and 
+    */
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String,List> map = new HashMap<>();
+        HashMap<Integer, List<String>> map = new HashMap<>();
+        List<List<String>> res = new ArrayList<>();
+        
         for( String s: strs){
-            int[] count = new int[26];
-            for( int i=0; i< s.length();i++){
-                count[s.charAt(i)-'a']++;
-                
-            }
-            StringBuilder str = new StringBuilder();
-            for( int i=0; i< 26; i++){
-                str.append("#");
-                str.append(count[i]);
-            }
-            
-            if(!map.containsKey(str.toString())){
-                map.put(str.toString(), new ArrayList());
-            }
-            map.get(str.toString()).add(s);
-            
+            int hashCode = hash(s);
+            map.putIfAbsent(hashCode,  new ArrayList<String>());
+            map.get(hashCode).add(s);
         }
-        return new ArrayList(map.values());
+        
+        map.forEach((k,v) -> {
+            res.add(v);
+        });
+        return res;
+    }
+    
+    public int hash(String s){
+        int[] charArr = new int[26];
+        for( int i=0; i< s.length(); i++){
+            charArr[s.charAt(i) - 'a'] += 1;
+        }
+        
+        return Arrays.hashCode(charArr);
     }
 }
