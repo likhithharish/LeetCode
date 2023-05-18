@@ -1,7 +1,9 @@
 class Solution {
     /*
     Intuition:
-    - Calculate prefix sum array -
+    - Calculate left sum array - for each index find the product of all elements that are on its left.
+    - Calculate right sum array - for each index find the product of all elements that are on its right.
+    - Now multiply left and right sum arrays at each index.
     */
     public int[] productExceptSelf(int[] nums) {
         int[] leftSum = new int[nums.length];
