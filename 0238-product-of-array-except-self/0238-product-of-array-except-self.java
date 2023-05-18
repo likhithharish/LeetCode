@@ -1,23 +1,25 @@
 class Solution {
+    /*
+    Intuition:
+    - Calculate prefix sum array -
+    */
     public int[] productExceptSelf(int[] nums) {
-        int[] left = new int[nums.length];
-        left[0]=1;
-        for( int i=1; i<nums.length ; i++){
-            left[i] = nums[i-1] * left[i-1];
+        int[] leftSum = new int[nums.length];
+        leftSum[0] = 1;
+        for( int i=1; i< nums.length; i++){
+            leftSum[i] = leftSum[i-1] * nums[i-1];
         }
         
-        // int[] right = new int[nums.length];
-        // right[right.length-1] = 1;
-        // for( int i=right.length-2; i>=0 ; i--){
-        //     right[i] = right[i+1] * nums[i+1];
-        // }
-        int rightProduct =1;
-        for( int i=nums.length-1; i>=0; i--){
-            left[i] = left[i]*rightProduct;
-            rightProduct*= nums[i];
+        int[] rightSum = new int[nums.length];
+        rightSum[nums.length-1] = 1;
+        for( int i=nums.length-2; i>=0; i--){
+            rightSum[i] = nums[i+1]* rightSum[i+1];
         }
         
-        return left;
+        for( int i =0; i<leftSum.length; i++){
+            leftSum[i] = leftSum[i] * rightSum[i];
+        }
         
+        return leftSum;
     }
 }
