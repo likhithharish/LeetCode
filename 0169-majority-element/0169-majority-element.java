@@ -1,36 +1,26 @@
 class Solution {
+    /*
+    Basic Intuition : Sort and find the majority element
+    */
     public int majorityElement(int[] nums) {
-        // Arrays.sort(nums);
-        // int curr = nums[0];
-        // int maxCount = 1;
-        // int maxElem = nums[0];
-        // int res =0;
-        // for( int i=1; i< nums.length; i++){
-        //     if( nums[i]==curr){
-        //         maxCount += 1;
-        //     }else{
-        //         curr = nums[i];
-        //         maxCount = 1;
-        //     }
-        //     if(maxCount > res){
-        //             maxElem = curr;
-        //             res = maxCount;
-        //     }
-        // }
-        // return maxElem;
-        
-        int res=0, count =1;
+        Arrays.sort(nums);
+        int currElem = nums[0];
+        int maxElem = nums[0];
+        int maxCount =1;
+        int res = 0;
         for( int i=1; i< nums.length; i++){
-            if(nums[res]== nums[i]){
-                count++;
+            if(nums[i] == currElem){
+                maxCount++;
             }else{
-                count--;
+                currElem = nums[i];
+                maxCount =1;
             }
-            if( count ==0){
-                res = i;
-                count = 1;
+            if(maxCount> res){
+                maxElem = nums[i];
+                res = maxCount;
             }
+            
         }
-        return nums[res];
+        return maxElem;
     }
 }
