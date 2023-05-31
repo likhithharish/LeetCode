@@ -1,41 +1,27 @@
 class Solution {
     public int reverse(int x) {
-//         boolean symbol =false;
-//         if(x<0){
-//             x =0 -x;
-//             symbol = true;
-//         }
-//         int n = x;
-//         int count =0;
-//         while(n>0){
-//             n = n/10;
-//             count++;
-//         }
-        
-//         long num = 0;
-//         while(x>0){
-//             int digit = x %10;
+//         int num = 0;
+//         while( x!=0){
+//             int lastDigit = x %10;
+//             if(num<Integer.MIN_VALUE/10 && (num == Integer.MIN_VALUE/10 && lastDigit< -8)){
+//                 return 0;
+//             }
+//             if( num> Integer.MAX_VALUE/10 && (num == Integer.MAX_VALUE/10 && lastDigit>7)){
+//                 return 0;
+//             }
+//             num = num * 10 + lastDigit;
 //             x = x/10;
-//             num = num + (int) (digit * Math.pow(10,(count-1)));
-//             count--;
 //         }
-//         if(num>Integer.MAX_VALUE || num<Integer.MIN_VALUE){
-//             return 0;
-//         }
-//         return (symbol) ? (int) -num : (int) num;
-        //Improvised:
-        long num =0;
-        while(x != 0){
-            int digit = x%10;
-            num = num * 10 + digit;
-            x = x/10;
-            
-        }
-        if(num>Integer.MAX_VALUE || num<Integer.MIN_VALUE){
-            return 0;
-        }
-        if(x<0){ num = -num;}
-        return (int) num;
         
+//         return num;
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > Integer.MAX_VALUE/10 || (rev == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
+            if (rev < Integer.MIN_VALUE/10 || (rev == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
     }
 }
