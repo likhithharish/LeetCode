@@ -1,32 +1,28 @@
 class Solution {
+    /*
+    Intuition:
+    - Keep element indexes in stack when stack is empty. 
+    - If stack peek is less than curr temp, loop through stack until stack top is larger , and update temperatures array with the index differences.
+    */
+    
     public int[] dailyTemperatures(int[] temperatures) {
-        // for( int i=0; i< temperatures.length; i++){
-        //     int temp = temperatures[i];
-        //     for( int j=i+1; j< temperatures.length; j++){
-        //         if(temperatures[j]>temperatures[i]){
-        //             temperatures[i] = j-i;
-        //             break;
-        //         }
-        //     }
-        //     if(temperatures[i]== temp){
-        //         temperatures[i]=0;
-        //     }
-        // }
-        // return temperatures;
-        
         Stack<Integer> st = new Stack<>();
-        int[] ans = new int[temperatures.length];
-        for( int i=0; i< temperatures.length; i++){
-            
-            while(!st.isEmpty() && temperatures[st.peek()]< temperatures[i] ){
-                int prev = st.pop();
-                ans[prev] = i - prev;
-                
+        for(int i=0; i< temperatures.length; i++){
+            if(st.isEmpty()){
+                st.add(i);
+            }else{
+                while(!st.isEmpty() && temperatures[st.peek()] < temperatures[i]){
+                    temperatures[st.peek()] = i - st.peek();
+                    st.pop();
+                }
+                st.add(i);
             }
-            st.add(i);
         }
-        
-        
-        return ans;
+        if(!st.isEmpty()){
+            while(!st.isEmpty()){
+                temperatures[st.pop()] = 0;
+            }
+        }
+        return temperatures;
     }
 }
