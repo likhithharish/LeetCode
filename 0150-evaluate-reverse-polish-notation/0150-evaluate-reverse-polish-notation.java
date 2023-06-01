@@ -1,7 +1,7 @@
 class Solution {
     /*
     Intuition:
-    - If its number, push it. if not 
+    - If its number, push it. if not retrieve top two elements from stack and perform operation and push result back to stack.
     */
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
