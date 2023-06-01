@@ -1,8 +1,12 @@
 class Solution {
+    /*
+    Intuition:
+    - If its number, push it. if not 
+    */
     public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
         for( int i=0; i<tokens.length;i++){
-            if(isNumeric(tokens[i])){
+            if(!"+-*/".contains(tokens[i])){
                 stack.add(Integer.parseInt(tokens[i]));
             }else{
                 int i1 = stack.pop();
@@ -26,12 +30,5 @@ class Solution {
         return stack.pop();
     }
     
-    public boolean isNumeric(String string){
-        try{
-            int num = Integer.parseInt(string);
-        }catch(Exception e){
-            return false;
-        }
-        return true;
-    }
+   
 }
