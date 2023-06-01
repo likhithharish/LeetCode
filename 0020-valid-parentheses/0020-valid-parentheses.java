@@ -1,23 +1,26 @@
 class Solution {
+    /*
+    Intuition:
+    - if its open paranthesis , push it to stack.
+    
+    */
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
-        
-        for( char c: s.toCharArray()){
-            if( c=='('){
-                st.add(')');
-            }else if(c=='['){
-                st.add(']');
-            }else if(c=='{'){
-                st.add('}');
-            }else{
-                if(st.isEmpty() || st.pop() != c){
+        for( int i=0; i< s.length(); i++){
+            if(s.charAt(i)=='(' || s.charAt(i)=='[' || s.charAt(i)=='{'){
+                st.add(s.charAt(i));
+            }else if(!st.isEmpty()){
+                if((s.charAt(i)== ')' && st.peek()=='(') ||
+                  (s.charAt(i)== ']' && st.peek()=='[') ||
+                  (s.charAt(i)== '}' && st.peek()=='{')){
+                    st.pop();
+                }else{
                     return false;
                 }
+            }else{
+                return false;
             }
         }
-        if(st.size()!=0){
-            return false;
-        }
-        return true;
+        return st.size()==0;
     }
 }
