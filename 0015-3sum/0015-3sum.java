@@ -1,50 +1,42 @@
 class Solution {
+    /*
+    Intuition:
+    - Sort the array , and loop through .
+    - to avoid duplicates , check if prev number is not same as curr .
+    */
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
+        // -4, -1, -1, 0 , 1, 2
         for( int i=0; i<nums.length && nums[i]<=0; i++){
-//             int target = -nums[i];
-//             int left = i+1;
-//             int right = nums.length -1;
-//             while(left<right){
-//                 if(nums[left]+nums[right]==target){
-//                     if(!res.contains(Arrays.asList(nums[i],nums[left],nums[right]))){
-//                         res.add(Arrays.asList(nums[i],nums[left],nums[right]));
-//                     }
-                    
-//                 }
-//                 if(nums[left]+nums[right]>target){
-//                     right--;
-//                 }else{
-//                     left++;
-//                 }
-//             }
-            if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
-                int target = 0 - nums[i];
-                int left = i + 1;
-                int right = nums.length - 1;
-
-                while (left < right) {
-                    if (nums[left] + nums[right] == target) {
-                        res.add(Arrays.asList(nums[i],nums[left],nums[right]));
-                        while (left < right && nums[left] == nums[left + 1]) {
-                            left++;
+            int target = 0- nums[i];
+            if(i==0 || (i>0 && nums[i] != nums[i-1])){
+                int start = i+1;
+                int end = nums.length -1;
+                while(start<end){
+                    if( nums[start] + nums[end] == target){
+                        result.add( Arrays.asList(nums[start], nums[end], nums[i]));
+                        //avoid duplicates
+                        while(start < end && nums[start] == nums[start+1]){
+                            start++;
                         }
-                        while (left < right && nums[right] == nums[right - 1]) {
-                            right--;
+                        while(start<end && nums[end]== nums[end-1]){
+                            end--;
                         }
-                        left++;
-                        right--;
-                    } else if (nums[left] + nums[right] > target) {
-                        right--;
-                    } else {
-                        left++;
+                        start++;
+                        end--;
+                        
+                    }else if(nums[start]+ nums[end]>target){
+                        end--;
+                    }else{
+                        start++;
                     }
                 }
             }
-
         }
         
-        return res;
+        return result;
     }
+    
+    
 }
