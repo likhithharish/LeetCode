@@ -1,4 +1,10 @@
 class Solution {
+    /*
+    Intuition: 
+    - Keep char in a map.
+    - loop till last butone  elem and perform logic of corner cases on i and i+1;
+    - for last but one elem, perform logic on i and i-1;
+    */
     public int romanToInt(String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         map.put('I',1);
