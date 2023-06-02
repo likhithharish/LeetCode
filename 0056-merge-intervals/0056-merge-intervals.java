@@ -1,10 +1,13 @@
 class Solution {
+    /*
+    Intuition:
+    - Sort the 2D array based on first element.
+    - Compare curr arr and prev arr and merge them . Keep the merged array on right side. Mark prev arr to avoid adding to output.
+    */
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, java.util.Comparator.comparingInt(a -> a[0]));
-        int count =0;
         for( int i=1; i<intervals.length ; i++){
             if(intervals[i][0] <= intervals[i-1][1]){
-                count++;
                 if(intervals[i][1]<=intervals[i-1][1]){
                     intervals[i][0] = intervals[i-1][0];
                     intervals[i][1] = intervals[i-1][1];
@@ -26,10 +29,6 @@ class Solution {
             out[i][0] = result.get(i)[0];
             out[i][1] = result.get(i)[1];
         }
-        // for( int i=0; i< result.size(); i++){
-        //     System.out.println(result.get(i)[0]+","+result.get(i)[1]);
-        // }
-        // System.out.println("----");
         return out;
     }
 }
