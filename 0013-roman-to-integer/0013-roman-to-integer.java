@@ -5,8 +5,8 @@ class Solution {
     - loop till last butone  elem and perform logic of corner cases on i and i+1;
     - for last but one elem, perform logic on i and i-1;
     */
-    public int romanToInt(String s) {
-        HashMap<Character, Integer> map = new HashMap<>();
+    static Map<Character, Integer> map = new HashMap<>();
+    static {
         map.put('I',1);
         map.put('V',5);
         map.put('X',10);
@@ -14,6 +14,10 @@ class Solution {
         map.put('C',100);
         map.put('D',500);
         map.put('M',1000);
+    }
+    public int romanToInt(String s) {
+        
+        
         if(s.length()==1){ return map.get(s.charAt(0));}
         
         int number = 0;
