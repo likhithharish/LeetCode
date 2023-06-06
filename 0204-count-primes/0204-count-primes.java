@@ -8,7 +8,7 @@ class Solution {
         boolean[] countPrimes = new boolean[n];
         Arrays.fill(countPrimes, true);
         
-        for( int i=2; i * i<n ; i++){
+        for( int i=2; i*i<n ; i++){
             if(countPrimes[i]){
                 
                 for(int j=i*2; j<n ; j= j+i){
