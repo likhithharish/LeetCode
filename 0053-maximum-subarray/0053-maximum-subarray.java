@@ -1,31 +1,17 @@
 class Solution {
+    /*Intuition:
+    - keep track of tempsum and if it becomes <0 , make it 0 and start counting new subarray sum. Update res whenever tempSum > prev res.
+    */
     public int maxSubArray(int[] nums) {
-        int sum =Integer.MIN_VALUE, tempSum=0;
-        for(int i=0;i<nums.length;i++){
-            tempSum = tempSum +nums[i];
-            if(tempSum > sum){
-                sum = tempSum;
-                
+        int currSum = 0;
+        int res = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            currSum += nums[i];
+            res = Math.max(res, currSum);
+            if (currSum < 0) {
+                currSum = 0;
             }
-            if(tempSum <0){
-                tempSum =0;
-            }
-            
         }
-        return sum;
-        // int temp[] = new int[nums.length];
-        // temp[0] = nums[0];
-        // for( int i=1; i< nums.length; i++){
-        //     //int res = Math.max(temp[i-1],nums[i]);
-        //     int res = Math.max(temp[i-1]+nums[i], nums[i]);
-        //     temp[i] = res;
-        // }
-        // int max = temp[0];
-        // for( int i: temp){
-        //     if(i> max){
-        //         max = i;
-        //     }
-        // }
-        // return max;
+        return res;
     }
 }
