@@ -1,6 +1,8 @@
 class Solution {
     /* Intuition
     Basic : Consider each eleemnt as first elem and compute sum of all subarrays starting from it(maximum subarray prob). - TLE
+    Optimised : Max sum of normal subarray - min sum of normal subarray .
+    min sum of normal subarray = max sum of inverted subarray.
     */
     public int maxSubarraySumCircular(int[] nums) {
         //NAIVE
