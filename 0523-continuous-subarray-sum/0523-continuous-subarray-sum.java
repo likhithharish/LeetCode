@@ -1,4 +1,7 @@
 class Solution {
+    /*
+    Intuition: Keep a hashmap with sum%k key and no of elem covered for that sum . If there is a key in map - we have a sum till curr elem - prefixSum as a multiple of k, return true;
+    */
     public boolean checkSubarraySum(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0,1);
@@ -15,10 +18,7 @@ class Solution {
             }else{
                 map.put(sum%k, i+1);
             }
-            
-            
         }
-        System.out.println(map.toString());
         return false;
     }
 }
