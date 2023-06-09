@@ -1,6 +1,7 @@
 class Solution {
     /*Intuition:
     - Keep track of prev symbol and compare with curr symbol and increment count accord.
+    - Sliding window implemented (0,1)start
     */
     public int maxTurbulenceSize(int[] arr) {
         int s = 0, e= 1;
