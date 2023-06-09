@@ -1,4 +1,8 @@
 class Solution {
+    /*
+    Intuition: prefixSum at 0 index will be same as prev Sum , keep track of preSum with count in map. 
+    Corner case - handle when prefixSum =0  bcoz of negative elem.
+    */
     public long zeroFilledSubarray(int[] nums) {
         HashMap<Integer,Integer> map = new HashMap<>();
         map.put(0,1);
