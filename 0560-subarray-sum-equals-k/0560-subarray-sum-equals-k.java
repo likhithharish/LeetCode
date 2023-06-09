@@ -1,4 +1,5 @@
 class Solution {
+    // Keep track of prefixSum and count in a hashmap and whenever u find a value of sum-k = prefixSum, increment res.
     public int subarraySum(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0,1);
