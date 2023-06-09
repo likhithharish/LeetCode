@@ -1,4 +1,7 @@
 class Solution {
+    /*Intuition:
+    - Keep track of prev symbol and compare with curr symbol and increment count accord.
+    */
     public int maxTurbulenceSize(int[] arr) {
         if(arr.length==1){
             return arr.length;
