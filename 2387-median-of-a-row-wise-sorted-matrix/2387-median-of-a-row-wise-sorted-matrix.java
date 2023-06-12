@@ -1,4 +1,9 @@
 class Solution {
+    /*
+    - Find minElem and maxElem in matrix.
+    - Compute median position from size.
+    - Use Binary Search to find midPosition and shift min and max values comparing with medianPosition.IMP : max = mid (when less) - trying to find elem that exists.
+    */
     public int matrixMedian(int[][] grid) {
         int c = grid[0].length;
         int r = grid.length;
