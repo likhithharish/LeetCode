@@ -1,4 +1,5 @@
 class Solution {
+    //Find the row and do binary search for element in the row.
     public boolean searchMatrix(int[][] matrix, int target) {
         for (int i = 0; i < matrix.length; i++) {
             int end = matrix[i].length - 1;
