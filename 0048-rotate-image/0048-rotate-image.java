@@ -1,4 +1,8 @@
 class Solution {
+    /*
+    intuition: Reverse the rows 0 <-> last , 1<->last-1 ...
+    //Transpose the matrix in place.
+    */
     public void rotate(int[][] matrix) {
        // Reverse,
         int start = 0, end = matrix.length - 1;
