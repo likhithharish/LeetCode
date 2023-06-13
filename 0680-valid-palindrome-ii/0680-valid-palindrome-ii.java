@@ -1,4 +1,7 @@
 class Solution {
+    /*
+    - If char at low and high are not equal , check the middle string is palindrome or not, if not return false.
+    */
     public boolean validPalindrome(String s) {
         int skip =0;
         int low =0, high =s.length()-1;
