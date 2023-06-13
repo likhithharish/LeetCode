@@ -1,6 +1,7 @@
 class Solution {
     /*
     Basic - Sort the array , find the starting maxValue for a index and compute diff and update res.Continue the loop till (n-k) elements only.
+    -Improved - Use sliding window of size k.
     */
     public int minimumDifference(int[] nums, int k) {
         if(k==1){
