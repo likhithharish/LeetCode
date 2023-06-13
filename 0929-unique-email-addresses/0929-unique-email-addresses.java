@@ -1,4 +1,7 @@
 class Solution {
+    /*
+    -Split string at "@" , perform operations of local and add it domain and add to a set to contain unique emails.
+    */
     public int numUniqueEmails(String[] emails) {
         
         HashSet<String> set = new HashSet<>();
