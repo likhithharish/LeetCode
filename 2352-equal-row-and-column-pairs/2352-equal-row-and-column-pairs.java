@@ -1,4 +1,8 @@
 class Solution {
+    /*
+    -Store rows in a map (string, integer).
+    - create array of each column and search for it in map nd increment result if found.
+    */
     public int equalPairs(int[][] grid) {
         HashMap<String, Integer> map = new HashMap<>();
         for(int i=0; i<grid.length; i++){
