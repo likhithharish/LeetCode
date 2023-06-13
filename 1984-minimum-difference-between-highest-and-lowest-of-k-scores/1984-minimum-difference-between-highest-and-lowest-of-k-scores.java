@@ -1,17 +1,20 @@
 class Solution {
+    /*
+    Basic - Sort the array , find the starting maxValue for a index and compute diff and update res.Continue the loop till (n-k) elements only.
+    */
     public int minimumDifference(int[] nums, int k) {
         if(k==1){
             return 0;
         }
         Arrays.sort(nums);
-        int n = nums.length;
         int res = Integer.MAX_VALUE;
-        for(int i=0; i<=n-k ; i++){
-            int val = nums[i];
-            for(int j=(i+k-1);j<n;j++){
-                res = Math.min(res, nums[j]-nums[i]);
-            }
+        int low = 0, high = k -1;
+        while(low<nums.length && high<nums.length){
+            res = Math.min(res, nums[high]- nums[low]);
+            low++;
+            high++;
         }
+        
         
         return res;
         
