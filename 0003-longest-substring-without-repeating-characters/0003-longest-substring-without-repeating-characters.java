@@ -1,6 +1,6 @@
 class Solution {
     /*
-    - keep a sliging window i(left, j(right). keep track of char index in a map and if char already exists in map , check  )
+    - keep a sliging window i(left, j(right). keep track of char index in a map and if char already exists in map , check  if left point is not ahead of prev char index , move left point to new char index +1 and update in map. (corner case - left point check 'abba')
     */
     public int lengthOfLongestSubstring(String s) {
      HashMap<Character, Integer> map = new HashMap<>();
