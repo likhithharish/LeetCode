@@ -1,37 +1,22 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        List<Character> str = new ArrayList<>();
-        
-        int result = 0;
-        for( int i=0; i<s.length(); i++){
-            // System.out.println("Start");
-            // printList(str);
-
-            if(str.contains(s.charAt(i))){
-                //if character already exists, remove the previous character
-                int index = str.indexOf(s.charAt(i));
-                str.remove(index);
-                // System.out.println("Removed");
-                // printList(str);
-                //remove all prev elem before this index case - abc (b)
-                if( index> 0){
-                    str.subList(0, index).clear();
+     HashMap<Character, Integer> map = new HashMap<>();
+        int max = 0;
+        int res =0;
+        int i=0;
+        for(int j=0; j<s.length() && i<s.length(); j++){
+            if(!map.containsKey(s.charAt(j))){
+                map.put(s.charAt(j), j);
+            }else{
+                if(map.get(s.charAt(j)) - j < 0 && !(i>map.get(s.charAt(j))) ){
+                    i = map.get(s.charAt(j)) + 1;
+                    
                 }
-                //printList(str);
+                map.put(s.charAt(j),j);
             }
-            str.add(s.charAt(i)); // add the character
-            // System.out.println("Added");
-            // printList(str);
-            result = Math.max( result, str.size());
+            
+            res = Math. max(res, j-i+1);
         }
-        
-        return result;
+        return res;
     }
-    
-    // public static void printList(List<Character> list){
-    //     for( char c : list){
-    //         System.out.print(c+",");
-    //     }
-    //     System.out.println("\n");
-    // }
 }
