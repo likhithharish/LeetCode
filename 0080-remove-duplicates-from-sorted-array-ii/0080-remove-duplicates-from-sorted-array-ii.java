@@ -1,4 +1,5 @@
 class Solution {
+    //Mark the duplicate indexes in list and update nums if list not contains the index.
     public int removeDuplicates(int[] nums) {
         List<Integer> dups = new ArrayList<>();
         int count =1;
