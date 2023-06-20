@@ -1,4 +1,5 @@
 class Solution {
+    //keep in a map of all char and their counts, start from char b and dec count, whenever char is not present or value not >0. return count.
     public int maxNumberOfBalloons(String text) {
         HashMap<Character, Integer> map = new HashMap<>();
         for(char c: text.toCharArray()){
