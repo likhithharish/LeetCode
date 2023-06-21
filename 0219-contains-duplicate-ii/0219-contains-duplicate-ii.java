@@ -1,5 +1,5 @@
 class Solution {
-    // Use a hashmap and update values in it
+    // Use a hashmap and update index in it, if map contains value compute the diff and return true or else update map value.
     public boolean containsNearbyDuplicate(int[] nums, int k) {
      HashMap<Integer, Integer> map = new HashMap<>();
         for(int i=0; i<nums.length;i++){
