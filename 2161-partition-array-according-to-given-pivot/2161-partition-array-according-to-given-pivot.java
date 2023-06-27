@@ -1,4 +1,5 @@
 class Solution {
+    //Naive partition approach - push all less than pivot into temp array, then dups and then greater elements, maintain a index .
     public int[] pivotArray(int[] nums, int pivot) {
         int[] temp = new int[nums.length];
         int index =0, dups=0;
