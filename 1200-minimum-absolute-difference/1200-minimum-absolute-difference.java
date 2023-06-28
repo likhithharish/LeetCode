@@ -1,4 +1,5 @@
 class Solution {
+    //Sort and find the minDifference and loop through again and return the pairs.
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
         Arrays.sort(arr);
         int minDif = Integer.MAX_VALUE;
