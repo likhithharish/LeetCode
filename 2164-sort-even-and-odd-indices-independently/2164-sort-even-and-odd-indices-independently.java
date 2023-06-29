@@ -1,4 +1,5 @@
 class Solution {
+    //Basic seperate even and odd indices values and sort them , then keep them back into the array.
     public int[] sortEvenOdd(int[] nums) {
         List<Integer> even = new ArrayList<>();
         List<Integer> odd = new ArrayList<>();
