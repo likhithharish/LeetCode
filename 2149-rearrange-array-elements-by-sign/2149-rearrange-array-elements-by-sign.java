@@ -1,4 +1,5 @@
 class Solution {
+    //Keep a temp array and push all postive to even indexes and negative to odd indexes
     public int[] rearrangeArray(int[] nums) {
         int[] res = new int[nums.length];
         int p =0, n=1;
