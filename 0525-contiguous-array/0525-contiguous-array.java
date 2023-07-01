@@ -1,6 +1,6 @@
 class Solution {
     // PrefixSum + Hashing
-
+    // Replace 0 with -1 and the ques becomes longest subarray with sum 0.
     public int findMaxLength(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < nums.length; i++) {
