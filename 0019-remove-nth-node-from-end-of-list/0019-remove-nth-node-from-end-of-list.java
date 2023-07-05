@@ -17,7 +17,7 @@ class Solution {
             curr = curr.next;
         }
         if(count ==1){
-            return null;
+            return null;//only one elem in list
         }
         int pos = 1;
         int k = count - n + 1;
@@ -33,6 +33,7 @@ class Solution {
         }
         ListNode nn = curr.next;
         if(prev==null){
+            // handle removing first elem
             return nn;
         }
         prev.next = nn;
