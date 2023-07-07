@@ -9,6 +9,9 @@
  * }
  */
 class Solution {
+    // count the total nodes in list
+    // get first kth node  and last kth node = (count-k+1)th node
+    // swap the values
     public ListNode swapNodes(ListNode head, int k) {
         ListNode curr = head;
         int total =1;
