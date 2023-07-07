@@ -9,38 +9,44 @@
  * }
  */
 class Solution {
+    // Method 1 : changing values
+    // Method 2 : changing links 
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode curr=head,prevFirst=null;
-        boolean isFirstPass=true;
+        ListNode curr = head, prevFirst = null; //(prevFirst = last elem of reversed k group)
         int total = 1;
-        ListNode cur = head;
-        while (cur.next != null) {
+        while(curr.next != null){
             total++;
-            cur = cur.next;
+            curr = curr.next;
         }
-        while(curr!=null ){
-            ListNode first=curr,prev=null;
-            int count=0;
-           
-            while(curr!=null && count<k){
-                ListNode next=curr.next;
-                curr.next=prev;
-                prev=curr;
-                curr=next;
-                count++;
+        
+        curr = head;
+        boolean isFirstpass = true;
+        while(curr != null){
+            ListNode first = curr, prev = null;
+            int count =0;
+            while(curr != null && count<k){
+                ListNode next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+                count ++;
             }
             
             total -= k;
-            
-            if(isFirstPass){head=prev;isFirstPass=false;}
-            else{prevFirst.next=prev;}
-            prevFirst=first;
-            if(total<k){//there are less than k elem at end,just add them
+            if(isFirstpass){
+                head = prev;
+                isFirstpass = false;
+            }else{
+                //add last elem of prev k group to newly reversed group
+                prevFirst.next = prev;
+            }
+            prevFirst = first;
+            if(total < k){
+                //add remaining nodes to last if the rest list size is less than k 
                 prevFirst.next = curr;
                 break;
             }
         }
-        
         return head;
     }
 }
