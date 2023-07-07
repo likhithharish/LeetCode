@@ -9,6 +9,9 @@
  * }
  */
 class Solution {
+    //Use four variables to represent odd list (start,end) and even list(start, end)
+    // keep a count to check the index, if odd count (=odd index) add the curr to oddend.next and update odd end (vice versa for even). 
+    // at last join odd end to even start and set even end to null
     public ListNode oddEvenList(ListNode head) {
         ListNode eS = null, eE = null, oS = null, oE = null;
         int count =1;
