@@ -71,16 +71,15 @@ class Solution {
     }
     
     public ListNode reverseList(ListNode head){
-         ListNode d = null;
-        
-        while(head!=null)
-        {
-            ListNode nxt = head.next;
-            head.next=d;
-            d = head;
-            head=nxt;
+        ListNode curr = head;
+        ListNode prev = null;
+        while (curr != null) {
+            ListNode next = curr.next;// save next node
+            curr.next = prev; // mark curr next to prev node
+            prev = curr; // move prev ref to curr node
+            curr = next;// move curr ref to next node
         }
-        return d;
+        return prev;
     }
     
     public void printList(ListNode head){
