@@ -1,3 +1,10 @@
+/*
+- Use a arraylist to store prev values and count indexes that are kept in arraylist.
+- For each index 1) if stack is not empty, remove all the elem from stack (from top) that are <= to it.
+- 2) if stack is empty , compute span .
+- compute span - (stack is empty) = (count +1) . count is index of elem in arraylist.
+- else (count - stack.peek()) . index of elem - index of previous greatest.
+*/
 class StockSpanner {
     private ArrayList<Integer> arr;
     private Stack<Integer> s;
