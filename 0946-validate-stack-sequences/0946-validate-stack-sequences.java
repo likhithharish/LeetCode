@@ -1,5 +1,8 @@
 class Solution {
-    // TLE error
+    // three scenarios :
+    // No elem in stack : add till popped[i] and mark popped[i] in pushed as lastRemovedIndex.
+    // Stack not contains curr elm : loop in pushed from lastRemovedIndex+1 to till curr elem location in pushed and add missing elem in stack.
+    // stack contains elem : pop and see if its same.
     public boolean validateStackSequences(int[] pushed, int[] popped) {
         Stack<Integer> st = new Stack<>();
         int lastRemovedIndex = 0;
