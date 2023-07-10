@@ -1,4 +1,5 @@
 class Solution {
+    // Traverse from right to left - count the stars and skip those count indexes by reducing count and not adding to result. reverse the result and return it.
     public String removeStars(String s) {
         StringBuilder res = new StringBuilder();
         int count =0;
@@ -11,7 +12,7 @@ class Solution {
                 count--;
                 continue;
             }else{
-                res.append(String.valueOf(s.charAt(i)) );
+                res.append(String.valueOf(s.charAt(i)));
             }
         }
         
