@@ -1,12 +1,13 @@
 class Solution {
-    final int RADIX = 36;
+    // Modified version of compute histogram- largest rect.
+    // treat each row as such prob and update result.
+    // update row based on prev row if the index is 1.
     public int maximalRectangle(char[][] matrix) {
-        
         int res = 0;
         int[] arr = new int[matrix[0].length];
         for(int i = 0; i < matrix.length; i++) {
             for(int j = 0; j < matrix[0].length; j++) {
-                arr[j] = matrix[i][j] == '1' ? arr[j] + 1 : 0;
+                arr[j] = (matrix[i][j] == '1') ? arr[j] + 1 : 0;
             }
             res = Math.max(res, computeHeight(arr));
         } 
