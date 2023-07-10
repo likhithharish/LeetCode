@@ -1,15 +1,11 @@
 class MinStack {
     //METHOD 1: Using two stacks , one stack maintain original stack and other maintains minimums.
+    
     private Stack<Integer> st = new Stack<>();
     private Stack<Integer> auxSt= new Stack<>();
-    
-    
-    public MinStack() {
-        
-    }
+    public MinStack() {}
     
     public void push(int val) {
-        
         st.push(val);
         if(auxSt.isEmpty() || auxSt.peek() >= st.peek()){
             auxSt.push(val);
@@ -17,7 +13,6 @@ class MinStack {
     }
     
     public void pop() {
-        
         if(auxSt.peek().equals(st.peek())){
             auxSt.pop();
         }
@@ -25,7 +20,6 @@ class MinStack {
     }
     
     public int top() {
-        
         return st.peek();
     }
     
