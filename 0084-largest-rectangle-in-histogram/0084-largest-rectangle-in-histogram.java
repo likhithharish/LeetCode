@@ -1,5 +1,5 @@
 class Solution {
-    // Find leftsmallest indices for each elem and keep in array
+    // METHOD 1: Find leftsmallest indices for each elem and keep in array
     // rightsmallest indexes for each elem into another key
     // compute possible area for each elem in heights and update res with maximum.
     public int largestRectangleArea(int[] heights) {
