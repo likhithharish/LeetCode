@@ -1,4 +1,5 @@
 class MinStack {
+    //METHOD 1: Using two stacks , one stack maintain original stack and other maintains minimums.
     private Stack<Integer> st = new Stack<>();
     private Stack<Integer> auxSt= new Stack<>();
     
