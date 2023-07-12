@@ -1,4 +1,5 @@
 class Solution {
+    // Run two nested loops from 1 to 9, frame sequential numbers and it to res, sort the res and return it.
     public List<Integer> sequentialDigits(int low, int high) {
         List<Integer> res = new ArrayList<Integer>();
         
@@ -16,6 +17,5 @@ class Solution {
         }
         Collections.sort(res);
         return res;
-        
     }
 }
