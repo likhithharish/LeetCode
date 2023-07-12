@@ -11,19 +11,22 @@ class Solution {
         int index = 0;
 
         for (int i = 0; i < k; ++i) {
-            while (!dq.isEmpty() && nums[i] >= nums[dq.peekLast()])
+            while (!dq.isEmpty() && nums[i] >= nums[dq.peekLast()]){
                 dq.removeLast();
+            }
             dq.addLast(i);
         }
     
         for (int i = k; i < nums.length; ++i) {
             res[index] = nums[dq.peek()];
             index++;
-            while ((!dq.isEmpty()) && dq.peek() <= i - k)
+            while ((!dq.isEmpty()) && dq.peek() <= i - k){
                 dq.removeFirst();
+            }
 
-            while ((!dq.isEmpty()) && nums[i] >= nums[dq.peekLast()])
+            while ((!dq.isEmpty()) && nums[i] >= nums[dq.peekLast()]){
                 dq.removeLast();
+            }
 
             dq.addLast(i);
         }
