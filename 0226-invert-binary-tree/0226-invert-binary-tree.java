@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    // Swap the left and right recursively for both left and right parts of each node.
     public TreeNode invertTree(TreeNode root) {
         if(root != null){
             TreeNode temp = root.left;
