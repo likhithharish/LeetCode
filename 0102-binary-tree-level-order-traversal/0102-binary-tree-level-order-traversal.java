@@ -15,13 +15,37 @@
  */
 class Solution {
     // Method 1: find height and print at each level using recursion till you reach height.
-    
+    // Methdo 2: use a queue to add left and right , add the curr queue as list first and then add removed elem left and right at end of queue
     public List<List<Integer>> levelOrder(TreeNode root) {
-        int height = height(root);
+        // int height = height(root);
+        // List<List<Integer>> out = new ArrayList<>();
+        // for(int i=0; i< height; i++){
+        //     List<Integer> temp = new ArrayList<>();
+        //     out.add(printNodes(root, i, temp));
+        // }
+        // return out;
+        Queue<TreeNode> q = new LinkedList<>();
         List<List<Integer>> out = new ArrayList<>();
-        for(int i=0; i< height; i++){
-            List<Integer> temp = new ArrayList<>();
-            out.add(printNodes(root, i, temp));
+        if(root== null){
+            return out;
+        }
+        q.add(root);
+        int listCount =0;
+        while(!q.isEmpty()){
+            out.add(new ArrayList<Integer>());
+            int size = q.size();
+            for(int i=0; i< size; i++){
+                TreeNode curr = q.poll();
+                
+                out.get(listCount).add(curr.val);
+                if(curr.left != null){
+                    q.add(curr.left);
+                }
+                if(curr.right != null){
+                    q.add(curr.right);
+                }
+            }
+            listCount++;
         }
         return out;
     }
