@@ -16,18 +16,37 @@
 class Solution {
     // get height of left sub tree and right subtree and compute abs diff , and do this for rest recursively.
     public boolean isBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        int lh = height(root.left);
-        int rh = height(root.right);
-        return Math.abs(lh - rh) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+//         if (root == null) {
+//             return true;
+//         }
+//         int lh = height(root.left);
+//         int rh = height(root.right);
+//         return Math.abs(lh - rh) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+//     }
+    
+//     public int height(TreeNode root) {
+//         if (root == null) {
+//             return 0;
+//         }
+//         return Math.max(height(root.left), height(root.right)) + 1;
+        return checkBalance(root)!=-1;
     }
     
-    public int height(TreeNode root) {
+    public static int checkBalance(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        return Math.max(height(root.left), height(root.right)) + 1;
+        int lh = checkBalance(root.left);
+        if (lh == -1) {
+            return -1;
+        }
+        int rh = checkBalance(root.right);
+        if (rh == -1) {
+            return -1;
+        }
+        if (Math.abs(lh - rh) > 1)
+            return -1;
+        else
+            return Math.max(lh, rh) + 1;
     }
 }
