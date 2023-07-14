@@ -24,6 +24,8 @@ class Solution {
         //     out.add(printNodes(root, i, temp));
         // }
         // return out;
+        
+        //Method 2:
         Queue<TreeNode> q = new LinkedList<>();
         List<List<Integer>> out = new ArrayList<>();
         if(root== null){
