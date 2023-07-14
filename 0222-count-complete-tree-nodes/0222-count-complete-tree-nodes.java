@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    // Using a recursive sol to count left side and then right side add 1 to count the root of childs.
     public int countNodes(TreeNode root) {
         if(root == null){
             return 0;
