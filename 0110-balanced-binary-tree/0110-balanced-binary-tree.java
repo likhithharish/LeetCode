@@ -15,6 +15,7 @@
  */
 class Solution {
     // get height of left sub tree and right subtree and compute abs diff , and do this for rest recursively.
+    // Check height of leftsubtree and right subtree recursively(which returns -1 , if unbalanced).
     public boolean isBalanced(TreeNode root) {
 //         if (root == null) {
 //             return true;
