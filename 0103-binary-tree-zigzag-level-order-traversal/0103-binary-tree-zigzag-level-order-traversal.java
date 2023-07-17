@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    // Do level order traversal and for every odd levels , reverse the list once added.
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         Queue<TreeNode> q = new LinkedList<>();
         List<List<Integer>> out = new ArrayList<>();
