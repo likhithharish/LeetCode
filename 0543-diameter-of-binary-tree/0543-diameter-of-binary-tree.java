@@ -15,9 +15,9 @@
  */
 class Solution {
     // Method 1 : for every node , compute height of its left subtree and right subtree and do it recursively for every node and return the maximum of it.
-    // Method 2 : compute while computing height.
+    // Method 2 : compute while computing height and store in external variable.
     
-    public int res;
+    public int res;// this gets set with result.
     public int diameterOfBinaryTree(TreeNode root) {
         // if(root == null){
         //     return 0;
