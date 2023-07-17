@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    // BFS and add last term into the result.
     public List<Integer> rightSideView(TreeNode root) {
         
         Queue<TreeNode> q = new LinkedList<>();
