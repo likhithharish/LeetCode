@@ -23,13 +23,7 @@ class Solution {
 //         int lh = height(root.left);
 //         int rh = height(root.right);
 //         return Math.abs(lh - rh) <= 1 && isBalanced(root.left) && isBalanced(root.right);
-//     }
     
-//     public int height(TreeNode root) {
-//         if (root == null) {
-//             return 0;
-//         }
-//         return Math.max(height(root.left), height(root.right)) + 1;
         return checkBalance(root)!=-1;
     }
     
@@ -49,5 +43,12 @@ class Solution {
             return -1;
         else
             return Math.max(lh, rh) + 1;
+    }
+    
+    public int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return Math.max(height(root.left), height(root.right)) + 1;
     }
 }
