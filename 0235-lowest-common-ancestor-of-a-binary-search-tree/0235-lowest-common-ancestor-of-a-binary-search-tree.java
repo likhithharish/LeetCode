@@ -11,7 +11,7 @@
 class Solution {
     // Method 1 : Generate paths for each p and q, return the last common elem in the paths 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        ArrayList<TreeNode> path1 = new ArrayList<>();
+        /*ArrayList<TreeNode> path1 = new ArrayList<>();
         ArrayList<TreeNode> path2 = new ArrayList<>();
         if (!findPath(root, path1, p.val) || !findPath(root, path2, q.val)) {
             return null;
@@ -32,7 +32,26 @@ class Solution {
                 return path1.get(path2.size()-1);
             }
         }
-        return null;
+        return null;*/
+        
+        // Method 2
+        if (root == null) {
+            return root;
+        }
+        if (root == p || root == q) {
+            return root;
+        }
+        TreeNode lca1 = lowestCommonAncestor(root.left, p, q);
+        TreeNode lca2 = lowestCommonAncestor(root.right, p, q);
+        if (lca1 != null && lca2 != null) {
+            return root;
+        }
+        if (lca1 != null) {
+            return lca1;
+        } else {
+            return lca2;
+        }
+        
     }
     
     public boolean findPath(TreeNode root, ArrayList<TreeNode> path, int n) {
