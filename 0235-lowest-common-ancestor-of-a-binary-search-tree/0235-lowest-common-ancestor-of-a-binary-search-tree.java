@@ -16,13 +16,7 @@ class Solution {
         if (!findPath(root, path1, p.val) || !findPath(root, path2, q.val)) {
             return null;
         }
-        for(TreeNode t: path1){
-            System.out.print(t.val+" ");
-        }
-        System.out.println(" ");
-        for(TreeNode t: path2){
-            System.out.print(t.val+" ");
-        }
+        
         for (int i = 0; i < path1.size() - 1 && i < path2.size() - 1; i++) {
             if (path1.get(i + 1).val != path2.get(i + 1).val) {
                 return path1.get(i);
