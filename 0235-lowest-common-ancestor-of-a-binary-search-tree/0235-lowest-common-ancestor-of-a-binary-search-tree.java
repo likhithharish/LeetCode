@@ -10,6 +10,7 @@
 
 class Solution {
     // Method 1 : Generate paths for each p and q, return the last common elem in the paths 
+    // Method 2 : One traversal and O(h) space using recursive traversal and handle four cases.
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         /*ArrayList<TreeNode> path1 = new ArrayList<>();
         ArrayList<TreeNode> path2 = new ArrayList<>();
