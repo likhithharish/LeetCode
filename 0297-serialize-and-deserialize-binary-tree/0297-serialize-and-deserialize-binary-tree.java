@@ -36,9 +36,6 @@ public class Codec {
         String[] s = data.split(",");
         size = s.length;
         return deserial(s);
-        // String[] s = data.split(",");   
-        // List<String> list = new LinkedList<String>(Arrays.asList(s));
-        // return deserial(list);
     }
     
     public TreeNode deserial(String[] s){
@@ -57,20 +54,6 @@ public class Codec {
         root.right = deserial(s);
         return root;
     }
-    
-    // public TreeNode deserial(List<String> list){
-    //     if(list.get(0).equals("null")){
-    //         list.remove(0);
-    //         return null;
-    //     }
-    //     int value = Integer.valueOf(list.get(0));
-    //     TreeNode root = new TreeNode(value);
-    //     list.remove(0);
-    //     root.left = deserial(list);
-    //     root.right = deserial(list);
-    //     return root;
-    // }
-    
    
 }
 
