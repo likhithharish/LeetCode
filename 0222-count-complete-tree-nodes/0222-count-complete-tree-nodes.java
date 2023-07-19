@@ -14,7 +14,8 @@
  * }
  */
 class Solution {
-    // Using a recursive sol to count left side and then right side add 1 to count the root of childs.
+    // Method 1: Using a recursive sol to count left side and then right side add 1 to count the root of childs.
+    // Method 2: Since complete, use count to get left height and right height, if balanced perfect no.of nodes= (2^lh)-1;
     public int countNodes(TreeNode root) {
         // if(root == null){
         //     return 0;
