@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+    // Preorder and check is root contains subroot string
     String str;
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         str = "";
@@ -21,8 +22,7 @@ class Solution {
         String mainStr = new String(str);
         str ="";
         preOrder(subRoot);
-        System.out.println(mainStr);
-        System.out.println(str);
+        
         return mainStr.contains(str);
     }
     
