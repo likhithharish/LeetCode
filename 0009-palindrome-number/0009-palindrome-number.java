@@ -1,4 +1,5 @@
 class Solution {
+    // String palindrome logic
     public boolean isPalindrome(int x) {
         String num = String.valueOf(x);
         int i=0,j =num.length()-1;
