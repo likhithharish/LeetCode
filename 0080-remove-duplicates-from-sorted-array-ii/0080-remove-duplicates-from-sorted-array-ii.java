@@ -1,25 +1,24 @@
 class Solution {
-    //Mark the duplicate indexes in list and update nums if list not contains the index.
+    // Keep two pointers , 
+    // First count the similar integers and loop only 2 times or less and swap till first pointer, 
     public int removeDuplicates(int[] nums) {
-        List<Integer> indexes = new ArrayList<>();
-        int count =1;
-        for(int i=1; i<nums.length; i++){
-            if(nums[i]==nums[i-1]){
-                count++;
-            }else{
-                count =1;
+        int left=0;
+        int right =0;
+       
+        while(right<nums.length){
+            int count =1;
+            while(right+1< nums.length && nums[right] == nums[right+1]){
+                right+=1;
+                count+=1;
             }
-            if(count>2){
-                indexes.add(i);
+            int start = Math.min(2,count);
+            for(int i=0; i<start; i++){
+                nums[left] = nums[right];
+                left +=1;
             }
+            right +=1;
         }
-        int j =0;//two pointer approach
-        for(int i=0;i<nums.length; i++){
-            if(!indexes.contains(i)){
-                nums[j] = nums[i];
-                j++;
-            }
-        }
-        return nums.length- indexes.size();
+        
+        return left;
     }
 }
