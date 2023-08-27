@@ -1,4 +1,5 @@
 class Solution {
+    // Intuition: Handle corner cases(4,9,40..) reduce the number from 1000 to 1, and append String that many times based on reminder.
     public String intToRoman(int num) {        
         int[] arr = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
         
