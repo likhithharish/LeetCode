@@ -1,5 +1,5 @@
 class Solution {
-    // Intuition: generate number from num array, compute sum and it to a list , reverse the list.
+    // Intuition: generate number from num array, compute sum(column wise number by number) and it to a list , reverse the list.
     public List<Integer> addToArrayForm(int[] num, int k) {
         List<Integer> res = new ArrayList<>();
         int carry =0;
