@@ -4,11 +4,14 @@ class Solution {
     // Approach 3: using Min heap - add each num and if size is more than k , remove first, finally return the peek.
     
     public int findKthLargest(int[] nums, int k) {
-       List<Integer> vals = new ArrayList<>();
-        for(int i: nums){
-            vals.add(i);
-        }
-        return quickSelect(vals, k);
+        //APproach 2:
+       // List<Integer> vals = new ArrayList<>();
+       //  for(int i: nums){
+       //      vals.add(i);
+       //  }
+       //  return quickSelect(vals, k);
+        
+        // Approach 3:
         // PriorityQueue<Integer> pq = new PriorityQueue<>();
         // for(int i: nums){
         //     pq.add(i);
@@ -17,6 +20,27 @@ class Solution {
         //     }
         // }
         // return pq.peek();
+        
+        // Approach 4:
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int i: nums){
+            max = Math.max(i, max);
+            min = Math.min(i, min);
+        }
+        int[] counts = new int[max - min+1];
+        for(int i: nums){
+            counts[i - min] += 1;
+        }
+        
+        // iterate counts from last and decrement k;
+        for(int i= counts.length -1; i>= 0; i--){
+            k -= counts[i];
+            if(k<=0){
+                return i+min;
+            }
+        }
+        return -1;
     }
     
     public int quickSelect(List<Integer> nums, int k){
