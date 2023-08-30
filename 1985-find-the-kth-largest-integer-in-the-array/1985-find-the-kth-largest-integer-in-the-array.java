@@ -21,14 +21,23 @@ class Solution {
     
     public String kthLargestNumber(String[] nums, int k) {
        
-       PriorityQueue<String> pq = new PriorityQueue<>(new StringComparator());
+//        PriorityQueue<String> pq = new PriorityQueue<>(new StringComparator());
         
-        for(String s: nums){
-            pq.add(s);
-            if(pq.size() > k){
-                pq.poll();
+//         for(String s: nums){
+//             pq.add(s);
+//             if(pq.size() > k){
+//                 pq.poll();
+//             }
+//         }
+//         return pq.peek();
+        
+        Arrays.sort(nums, (String s1, String s2) -> {
+             if (s1.length() == s2.length()) {
+                return s2.compareTo(s1);
             }
-        }
-        return pq.peek();
+            return s2.length() - s1.length();
+        });
+        System.out.println(Arrays.toString(nums));
+        return nums[k-1];
     }
 }
