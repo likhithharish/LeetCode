@@ -18,7 +18,7 @@ class StringComparator implements Comparator<String>{
 class Solution {
     // Converting String to int will give numformatexception for large strings.
     // Optimised approach: Use a heap with custom comparator
-    
+    // Custom sorting comparator in Arrays.sort();
     public String kthLargestNumber(String[] nums, int k) {
        
 //        PriorityQueue<String> pq = new PriorityQueue<>(new StringComparator());
