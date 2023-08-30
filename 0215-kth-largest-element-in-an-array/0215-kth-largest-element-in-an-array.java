@@ -21,7 +21,7 @@ class Solution {
         // }
         // return pq.peek();
         
-        // Approach 4:
+        // Approach 4: Counting sort (modified)
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
         for(int i: nums){
