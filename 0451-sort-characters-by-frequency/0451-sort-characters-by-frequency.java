@@ -1,4 +1,5 @@
 class Solution {
+    ////[1] Use a HashMap and store all values, sort the hashmap based on values (maxHeap) and return by appending each key (value times) from maxheap.
     public String frequencySort(String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         
@@ -11,7 +12,7 @@ class Solution {
         for(Map.Entry e : map.entrySet()){
             maxHeap.add(e);
         }
-        //System.out.println(maxHeap);
+        
         StringBuilder res = new StringBuilder();
         
         while(maxHeap.size() > 0){
