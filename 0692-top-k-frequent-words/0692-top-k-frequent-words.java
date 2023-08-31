@@ -1,5 +1,6 @@
-
 class Solution {
+    // make freq count map with string as key, create a bucket freq list with index as freq and array in the index value.
+    //loop from back of bucket list and get k freq words by sorting the bucket[i] .
     public List<String> topKFrequent(String[] words, int k) {
         HashMap<String, Integer> map = new HashMap<>();
         
@@ -14,14 +15,13 @@ class Solution {
                 bucket[freq] = new LinkedList<>();
             bucket[freq].add(n);
         }
-        //System.out.println(Arrays.toString(bucket));
+        
         
         List<String> res = new ArrayList<>();
         for(int i=bucket.length-1; i>=0 && k!=0; i--){
             if(bucket[i]!= null){
                 int length = bucket[i].size();
                 Collections.sort(bucket[i]);
-                //System.out.println(bucket[i]);
                 int index =0;
                 while(length > 0 && k!=0){
                     res.add(bucket[i].get(index));
