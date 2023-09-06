@@ -1,4 +1,5 @@
 class Solution {
+    // Sort the array and compute sum at each index and finding pair in rest of array (maintain minimum distance for each sum computed), return target - distance
     public int threeSumClosest(int[] nums, int target) {
         Arrays.sort(nums);
         int diff = Integer.MAX_VALUE;
@@ -10,7 +11,7 @@ class Solution {
                 if(Math.abs(target-sum) < Math.abs(diff)){
                     diff = target - sum;
                 }
-                if(nums[i] + nums[start] + nums[end] < target){
+                if(sum < target){
                     start++;
                 }else{
                     end--;
