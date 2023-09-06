@@ -1,4 +1,5 @@
 class Solution {
+    // At each index, compute leftMax and rightMax and water that can fill at that position will Min(leftMax, rightMax) - height[i]. Compute sum result for each index and return it.
     public int trap(int[] height) {
         int[] leftMax = new int[height.length];
         leftMax[0] = -1;
