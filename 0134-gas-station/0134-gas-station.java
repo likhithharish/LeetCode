@@ -1,4 +1,5 @@
 class Solution {
+    // Intuition: when gas_cost becomes zero, update start and keep track of it in prev_gas.
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int gas_cost =0;
         int start = 0, prev_gas =0;
