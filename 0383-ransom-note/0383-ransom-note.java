@@ -1,4 +1,5 @@
 class Solution {
+    // Use a char count array and update magazine, decrement ransomNote in another loop.
     public boolean canConstruct(String ransomNote, String magazine) {
         
         int[] chars = new int[26];
